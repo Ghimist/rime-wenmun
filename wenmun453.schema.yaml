@@ -1,0 +1,545 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  name: "諺文453"
+  schema_id: wenmun453
+  version: "0.1"
+  author: 
+    - "xxx"
+  description: |-
+    諺文鍵入式
+    - 2025.12.13 19:05
+    - 2025.12.17 22：19 二代
+    - 2025.12.18 23:51 諺文453定名
+    - 2025.12.19 07：33 algebra
+  dependencies:
+    - luna_quanpin
+
+engine:                    # 輸入引擎設定，即掛接組件的「處方」
+  processors:              # 一、這批組件處理各類按鍵消息
+    - speller              # ※ 拼寫處理器，接受字符按鍵，編輯輸入碼
+    # - fluid_editor         # ※ 句式編輯器，用於以空格斷詞、回車上屏的【注音】、【語句流】等輸入方案，替換 express_editor，也可以寫作 fluency_editor
+
+    - ascii_composer       # ※ 處理西文模式及中西文切換
+    # - recognizer           # ※ 與 matcher 搭配，處理符合特定規則的輸入碼，如網址、反查等
+    # - key_binder           # ※ 在特定條件下將按鍵綁定到其他按鍵，如重定義逗號、句號爲候選翻頁鍵
+    # - punctuator           # ※ 句讀處理器，將單個字符按鍵直接映射爲文字符號
+    - selector             # ※ 選字處理器，處理數字選字鍵、上、下候選定位、換頁鍵
+    - navigator            # ※ 處理輸入欄內的光標移動鍵
+    - express_editor       # ※ 編輯器，處理空格、回車上屏、回退鍵等
+    # - chord_composer    # ※ 和絃作曲家或曰並擊處理器，用於【宮保拼音】等多鍵並擊的輸入方案
+  segmentors:              # 二、這批組件識別不同內容類型，將輸入碼分段
+    - ascii_segmentor      # ※ 標識西文段落
+    # - matcher              # ※ 標識符合特定規則的段落，如網址、反查等
+    - abc_segmentor        # ※ 標識常規的文字段落
+    # - punct_segmentor      # ※ 標識句讀段落
+    - fallback_segmentor   # ※ 標識其他未標識段落
+  translators:             # 三、這批組件翻譯特定類型的編碼段爲一組候選文字
+    - echo_translator      # ※ 沒有其他候選字時，回顯輸入碼
+    # - punct_translator     # ※ 轉換標點符號
+    # - script_translator    # ※ 腳本翻譯器，用於拼音等基於音節表的輸入方案
+    - table_translator  # ※ 碼表翻譯器，用於倉頡、五筆等基於碼表的輸入方案，替換 script_translator
+    # - reverse_lookup_translator  # ※ 反查翻譯器，用另一種編碼方案查碼
+  # filters:                 # 四、這批組件過濾翻譯的結果
+    # - simplifier           # ※ 繁簡轉換
+    # - uniquifier           # ※ 過濾重複的候選字，有可能來自繁簡轉換
+speller:
+  alphabet: qwertyuiopasdfghjklzxcvbnm	# 26初鍵
+  delimiter: " '"
+  algebra:
+    - derive/ㅖ/ㅕㅣ/	# 樞
+    - derive/ㆋ/ㅠㅕㅣ/	# 樞
+    - derive/ㆊ/ㅠㅕ/	# 樞
+    - derive/ㆌ/ㅠㅣ/	# 樞
+    - derive/ㅒ/ㅑㅣ/	# 樞
+    - derive/ㆈ/ㅛㅑㅣ/	# 樞
+    - derive/ㆇ/ㅛㅑ/	# 樞
+    - derive/ㆉ/ㅛㅣ/	# 樞
+    - derive/ㅔ/ㅓㅣ/	# 樞
+    - derive/ㅞ/ㅜㅓㅣ/	# 樞
+    - derive/ㅝ/ㅜㅓ/	# 樞
+    - derive/ㅟ/ㅜㅣ/	# 樞
+    - derive/ㅐ/ㅏㅣ/	# 樞
+    - derive/ㅙ/ㅗㅏㅣ/	# 樞
+    - derive/ㅘ/ㅗㅏ/	# 樞
+    - derive/ㅚ/ㅗㅣ/	# 樞
+    - derive/ㅢ/ㅡㅣ/	# 樞
+    - derive/ㆎ/ㆍㅣ/	# 樞
+    - derive/ㅤ/ㆍㆍ/	# 樞
+    - derive/ㅬ/ㄹㅿ/	# 紐
+    - derive/ㅀ/ㄹㅎ/	# 紐
+    - derive/ㅭ/ㄹㆆ/	# 紐
+    - derive/ㄽ/ㄹㅅ/	# 紐
+    - derive/ㄻ/ㄹㅁ/	# 紐
+    - derive/ㄿ/ㄹㅍ/	# 紐
+    - derive/ㅫ/ㄹㅂㅅ/	# 紐
+    - derive/ㄼ/ㄹㅂ/	# 紐
+    - derive/ㄾ/ㄹㅌ/	# 紐
+    - derive/ㅪ/ㄹㄷ/	# 紐
+    - derive/ㅩ/ㄹㄱㅅ/	# 紐
+    - derive/ㄺ/ㄹㄱ/	# 紐
+    - derive/ㅾ/ㅅㅈ/	# 紐
+    - derive/ㅽ/ㅅㅂ/	# 紐
+    - derive/ㅻ/ㅅㄴ/	# 紐
+    - derive/ㅼ/ㅅㄷ/	# 紐
+    - derive/ㅺ/ㅅㄱ/	# 紐
+    - derive/ㅰ/ㅁㅿ/	# 紐
+    - derive/ㅱ/ㅁㅇ/	# 紐
+    - derive/ㅯ/ㅁㅅ/	# 紐
+    - derive/ㅮ/ㅁㅂ/	# 紐
+    - derive/ㆄ/ㅍㅇ/	# 紐
+    - derive/ㅹ/ㅃㅇ/	# 紐
+    - derive/ㅸ/ㅂㅇ/	# 紐
+    - derive/ㅵ/ㅂㅅㄷ/	# 紐
+    - derive/ㅴ/ㅂㅅㄱ/	# 紐
+    - derive/ㅄ/ㅂㅅ/	# 紐
+    - derive/ㅶ/ㅂㅈ/	# 紐
+    - derive/ㅷ/ㅂㅌ/	# 紐
+    - derive/ㅳ/ㅂㄷ/	# 紐
+    - derive/ㅲ/ㅂㄱ/	# 紐
+    - derive/ㅨ/ㄴㅿ/	# 紐
+    - derive/ㄶ/ㄴㅎ/	# 紐
+    - derive/ㅧ/ㄴㅅ/	# 紐
+    - derive/ㄵ/ㄴㅈ/	# 紐
+    - derive/ㅥ/ㄴㄴ/	# 紐
+    - derive/ㅦ/ㄴㄷ/	# 紐
+    - derive/ㆃ/ㆁㅿ/	# 紐
+    - derive/ㆂ/ㆁㅅ/	# 紐
+    - derive/ㆀ/ㆁㆁ/	# 紐
+    - derive/ㄳ/ㄱㅅ/	# 紐
+    - derive/ퟴ/ᇫㅂㅇ/	# 終
+    - derive/ퟳ/ᇫㅂ/	# 終
+    - derive/ᇗ/ᆯㅿ/	# 終
+    - derive/ퟗ/ᆯㄹㅋ/	# 終
+    - derive/ᇐ/ᆯㄹ/	# 終
+    - derive/ퟝ/ᆯㅇ/	# 終
+    - derive/ᆶ/ᆯㅎ/	# 終
+    - derive/ퟜ/ᆯㆆㅎ/	# 終
+    - derive/ᇙ/ᆯㆆ/	# 終
+    - derive/ᇖ/ᆯㅆ/	# 終
+    - derive/ᆳ/ᆯㅅ/	# 終
+    - derive/ퟘ/ᆯㅁㅎ/	# 終
+    - derive/ᇒ/ᆯㅁㅅ/	# 終
+    - derive/ᇑ/ᆯㅁㄱ/	# 終
+    - derive/ᆱ/ᆯㅁ/	# 終
+    - derive/ᇔ/ᆯㅍ/	# 終
+    - derive/ᆵ/ᆯㅍ/	# 終
+    - derive/ퟚ/ᆯㅃㅎ/	# 終
+    - derive/ᇕ/ᆯㅂㅇ/	# 終
+    - derive/ᇓ/ᆯㅂㅅ/	# 終
+    - derive/ퟙ/ᆯㅂㄷ/	# 終
+    - derive/ᆲ/ᆯㅂ/	# 終
+    - derive/ᇍ/ᆯㄴ/	# 終
+    - derive/ᇏ/ᆯㅌ/	# 終
+    - derive/ᆴ/ᆯㅌ/	# 終
+    - derive/ᇎ/ᆯㄷ/	# 終
+    - derive/ퟛ/ᆯㆁ/	# 終
+    - derive/ퟖ/ᆯㅋ/	# 終
+    - derive/ᇘ/ᆯㅋ/	# 終
+    - derive/ퟕ/ᆯㄲ/	# 終
+    - derive/ᇌ/ᆯㄱㅅ/	# 終
+    - derive/ᆰ/ᆯㄱ/	# 終
+    - derive/ᇶ/ᇂㄹ/	# 終
+    - derive/ᇷ/ᇂㅁ/	# 終
+    - derive/ᇸ/ᇂㅂ/	# 終
+    - derive/ᇵ/ᇂㄴ/	# 終
+    - derive/ퟭ/ᆻㄷ/	# 終
+    - derive/ퟬ/ᆻㄱ/	# 終
+    - derive/ퟮ/ᆺㅿ/	# 終
+    - derive/ᇩ/ᆺㄹ/	# 終
+    - derive/ퟲ/ᆺㅎ/	# 終
+    - derive/ퟰ/ᆺㅊ/	# 終
+    - derive/ퟯ/ᆺㅈ/	# 終
+    - derive/ퟪ/ᆺㅁ/	# 終
+    - derive/ퟫ/ᆺㅂㅇ/	# 終
+    - derive/ᇪ/ᆺㅂ/	# 終
+    - derive/ퟱ/ᆺㅌ/	# 終
+    - derive/ᇨ/ᆺㄷ/	# 終
+    - derive/ᇧ/ᆺㄱ/	# 終
+    - derive/ퟸ/ᆽㅃ/	# 終
+    - derive/ퟷ/ᆽㅂ/	# 終
+    - derive/ᇟ/ᆷㅿ/	# 終
+    - derive/ᇛ/ᆷㄹ/	# 終
+    - derive/ᇢ/ᆷㅇ/	# 終
+    - derive/ᇡ/ᆷㅎ/	# 終
+    - derive/ᇞ/ᆷㅆ/	# 終
+    - derive/ᇝ/ᆷㅅ/	# 終
+    - derive/ᇠ/ᆷㅊ/	# 終
+    - derive/ퟢ/ᆷㅈ/	# 終
+    - derive/ퟠ/ᆷㅁ/	# 終
+    - derive/ퟡ/ᆷㅂㅅ/	# 終
+    - derive/ᇜ/ᆷㅂ/	# 終
+    - derive/ퟟ/ᆷㄴㄴ/	# 終
+    - derive/ퟞ/ᆷㄴ/	# 終
+    - derive/ᇚ/ᆷㄱ/	# 終
+    - derive/ᇴ/ᇁㅇ/	# 終
+    - derive/ퟺ/ᇁㅅ/	# 終
+    - derive/ᇳ/ᇁㅂ/	# 終
+    - derive/ퟻ/ᇁㅌ/	# 終
+    - derive/ᇥ/ᇁ/	# 終
+    - derive/ᇤ/ퟦㅎ/	# 終
+    - derive/ퟤ/ᆸㄹㅍ/	# 終
+    - derive/ᇣ/ᆸㄹ/	# 終
+    - derive/ᇦ/ᆸㅇ/	# 終
+    - derive/ퟧ/ᆸㅅㄷ/	# 終
+    - derive/ᆹ/ᆸㅅ/	# 終
+    - derive/ퟩ/ᆸㅊ/	# 終
+    - derive/ퟨ/ᆸㅈ/	# 終
+    - derive/ퟥ/ᆸㅁ/	# 終
+    - derive/ퟣ/ᆸㄷ/	# 終
+    - derive/ᇈ/ᆫㅿ/	# 終
+    - derive/ퟋ/ᆫㄹ/	# 終
+    - derive/ᆭ/ᆫㅎ/	# 終
+    - derive/ᇇ/ᆫㅅ/	# 終
+    - derive/ퟌ/ᆫㅊ/	# 終
+    - derive/ᆬ/ᆫㅈ/	# 終
+    - derive/ᇿ/ᆫㄴ/	# 終
+    - derive/ᇉ/ᆫㅌ/	# 終
+    - derive/ᇆ/ᆫㄷ/	# 終
+    - derive/ᇅ/ᆫㄱ/	# 終
+    - derive/ퟔ/ퟍㅎ/	# 終
+    - derive/ퟎ/ퟍㅂ/	# 終
+    - derive/ᇋ/ᆮㄹ/	# 終
+    - derive/ퟑ/ᆮㅅㄱ/	# 終
+    - derive/ퟐ/ᆮㅅ/	# 終
+    - derive/ퟓ/ᆮㅊ/	# 終
+    - derive/ퟒ/ᆮㅈ/	# 終
+    - derive/ퟏ/ᆮㅂ/	# 終
+    - derive/ᇊ/ᆮㄱ/	# 終
+    - derive/ᇲ/ᇰㅿ/	# 終
+    - derive/ퟶ/ᇰㅎ/	# 終
+    - derive/ᇱ/ᇰㅅ/	# 終
+    - derive/ퟵ/ᇰㅁ/	# 終
+    - derive/ᇮ/ᇰㆁ/	# 終
+    - derive/ᇯ/ᇰㅋ/	# 終
+    - derive/ᇭ/ᇰㄲ/	# 終
+    - derive/ᇬ/ᇰㄱ/	# 終
+    - derive/ᇾ/ᆿ/	# 終
+    - derive/ᇽ/ᆩㅎ/	# 終
+    - derive/ᇃ/ᆨㄹ/	# 終
+    - derive/ᇄ/ᆨㅅㄱ/	# 終
+    - derive/ᆪ/ᆨㅅ/	# 終
+    - derive/ᇼ/ᆨㅊ/	# 終
+    - derive/ᇻ/ᆨㅂ/	# 終
+    - derive/ᇺ/ᆨㄴ/	# 終
+    - derive/ᆥ/ᅧㅑ/	# 中
+    - derive/ᅾ/ᅧㅜ/	# 中
+    - derive/ᅽ/ᅧㅗ/	# 中
+    - derive/ퟆ/ᅧㅣ/	# 中
+    - derive/ᅨ/ᅧㅣ/	# 中
+    - derive/ᆟ/ᅧ/	# 中
+    - derive/ᆒ/ᅲㅕㅣ/	# 中
+    - derive/ᆑ/ᅲㅕ/	# 中
+    - derive/ᆐ/ᅲㅓㅣ/	# 中
+    - derive/ᆏ/ᅲㅓ/	# 中
+    - derive/ᆓ/ᅲㅜ/	# 中
+    - derive/ힷ/ᅲㅏㅣ/	# 中
+    - derive/ᆎ/ᅲㅏ/	# 中
+    - derive/ힸ/ᅲㅗ/	# 中
+    - derive/ᆔ/ᅲㅣ/	# 中
+    - derive/ᆠ/ᅲ/	# 中
+    - derive/ᅹ/ᅣㅛ/	# 中
+    - derive/ᆤ/ᅣㅜ/	# 中
+    - derive/ᅸ/ᅣㅗ/	# 中
+    - derive/ᅤ/ᅣㅣ/	# 中
+    - derive/ퟅ/ᅣ/	# 中
+    - derive/ᆆ/ᅭㅕ/	# 中
+    - derive/ᆅ/ᅭㅑㅣ/	# 中
+    - derive/ᆄ/ᅭㅑ/	# 中
+    - derive/ힴ/ᅭㅓ/	# 中
+    - derive/ힳ/ᅭㅏㅣ/	# 中
+    - derive/ힲ/ᅭㅏ/	# 中
+    - derive/ᆇ/ᅭㅗ/	# 中
+    - derive/ᆈ/ᅭㅣ/	# 中
+    - derive/ᅻ/ᅥㅜ/	# 中
+    - derive/ᅺ/ᅥㅗ/	# 中
+    - derive/ᅦ/ᅥㅣ/	# 中
+    - derive/ᅼ/ᅥㅡ/	# 中
+    - derive/ᆌ/ᅮㅕㅣ/	# 中
+    - derive/ힵ/ᅮㅕ/	# 中
+    - derive/ᅰ/ᅮㅓㅣ/	# 中
+    - derive/ᆋ/ᅮㅓㅡ/	# 中
+    - derive/ᅯ/ᅮㅓ/	# 中
+    - derive/ᆍ/ᅮㅜ/	# 中
+    - derive/ᆊ/ᅮㅏㅣ/	# 中
+    - derive/ᆉ/ᅮㅏ/	# 中
+    - derive/ힶ/ᅮㅣㅣ/	# 中
+    - derive/ᅱ/ᅮㅣ/	# 中
+    - derive/ᅷ/ᅡㅜ/	# 中
+    - derive/ᅶ/ᅡㅗ/	# 中
+    - derive/ᅢ/ᅡㅣ/	# 中
+    - derive/ᆣ/ᅡㅡ/	# 中
+    - derive/ᆁ/ᅩㅕㅣ/	# 中
+    - derive/ힰ/ᅩㅕ/	# 中
+    - derive/ᆧ/ᅩㅑㅣ/	# 中
+    - derive/ᆦ/ᅩㅑ/	# 中
+    - derive/ᆀ/ᅩㅓㅣ/	# 中
+    - derive/ᅿ/ᅩㅓ/	# 中
+    - derive/ᆃ/ᅩㅜ/	# 中
+    - derive/ᅫ/ᅩㅏㅣ/	# 中
+    - derive/ᅪ/ᅩㅏ/	# 中
+    - derive/ힱ/ᅩㅗㅣ/	# 中
+    - derive/ᆂ/ᅩㅗ/	# 中
+    - derive/ᅬ/ᅩㅣ/	# 中
+    - derive/ퟀ/ᅵㅕㅣ/	# 中
+    - derive/ힿ/ᅵㅕ/	# 中
+    - derive/ퟃ/ᅵㅠ/	# 中
+    - derive/ힽ/ᅵㅑㅗ/	# 中
+    - derive/ힾ/ᅵㅑㅣ/	# 中
+    - derive/ᆙ/ᅵㅑ/	# 中
+    - derive/ퟂ/ᅵㅛ/	# 中
+    - derive/ᆛ/ᅵㅜ/	# 中
+    - derive/ᆘ/ᅵㅏ/	# 中
+    - derive/ퟁ/ᅵㅗㅣ/	# 中
+    - derive/ᆚ/ᅵㅗ/	# 中
+    - derive/ퟄ/ᅵㅣ/	# 中
+    - derive/ᆜ/ᅵㅡ/	# 中
+    - derive/ᆝ/ᅵㆍ/	# 中
+    - derive/ힻ/ᅳㅓㅣ/	# 中
+    - derive/ힺ/ᅳㅓ/	# 中
+    - derive/ᆕ/ᅳㅜ/	# 中
+    - derive/ힹ/ᅳㅏ/	# 中
+    - derive/ힼ/ᅳㅗ/	# 中
+    - derive/ᆗ/ᅳㅣㅜ/	# 中
+    - derive/ᅴ/ᅳㅣ/	# 中
+    - derive/ᆖ/ᅳㅡ/	# 中
+    - derive/ᆡ/ᆞㅣ/	# 中
+    - derive/ᆢ/ᆞㆍ/	# 中
+    - derive/ᄙ/ᄅㄹ/	# 初
+    - derive/ᄛ/ᄅㅇ/	# 初
+    - derive/ᄚ/ᄅㅎ/	# 初
+    - derive/ꥬ/ᄅㅅ/	# 初
+    - derive/ꥭ/ᄅㅈ/	# 初
+    - derive/ꥨ/ᄅㅁ/	# 初
+    - derive/ꥪ/ᄅㅃ/	# 初
+    - derive/ꥫ/ᄅㅂㅇ/	# 初
+    - derive/ꥩ/ᄅㅂ/	# 初
+    - derive/ᄘ/ᄅㄴ/	# 初
+    - derive/ꥧ/ᄅㄸ/	# 初
+    - derive/ꥦ/ᄅㄷ/	# 初
+    - derive/ꥮ/ᄅㅋ/	# 初
+    - derive/ꥥ/ᄅㄲ/	# 初
+    - derive/ꥤ/ᄅㄱ/	# 初
+    - derive/ꥻ/ᄒㅅ/	# 初
+    - derive/ꥼ/ᅙㆆ/	# 初
+    - derive/ᄿ/ᄊㅿ/	# 初
+    - derive/ᄽ/ᄊㅇ/	# 初
+    - derive/ᄴ/ᄊㅅ/	# 初
+    - derive/ꥵ/ᄊㅂ/	# 初
+    - derive/ᄾ/ᄉㅿ/	# 初
+    - derive/ᄰ/ᄉㄹ/	# 初
+    - derive/ᄼ/ᄉㅇ/	# 初
+    - derive/ᄻ/ᄉㅎ/	# 初
+    - derive/ᄷ/ᄉㅊ/	# 初
+    - derive/ᄶ/ᄉㅈ/	# 初
+    - derive/ᄱ/ᄉㅁ/	# 初
+    - derive/ᄺ/ᄉㅍ/	# 初
+    - derive/ᄳ/ᄉㅂㄱ/	# 初
+    - derive/ᄲ/ᄉㅂ/	# 初
+    - derive/ᄮ/ᄉㄴ/	# 初
+    - derive/ᄹ/ᄉㅌ/	# 初
+    - derive/ᄯ/ᄉㄷ/	# 初
+    - derive/ᄵ/ᄉㆁ/	# 初
+    - derive/ᄸ/ᄉㅋ/	# 初
+    - derive/ᄭ/ᄉㄱ/	# 初
+    - derive/ᅕ/ᄎㅿ/	# 初
+    - derive/ᅔ/ᄎㅇ/	# 初
+    - derive/ᅓ/ᄎㅎ/	# 初
+    - derive/ᅒ/ᄎㅋ/	# 初
+    - derive/ᅑ/ᄍㅿ/	# 初
+    - derive/ᅏ/ᄍㅇ/	# 初
+    - derive/ꥸ/ᄍㅎ/	# 初
+    - derive/ᅐ/ᄌㅿ/	# 初
+    - derive/ᅎ/ᄌㅇ/	# 初
+    - derive/ᅍ/ᄌㆁ/	# 初
+    - derive/ᄝ/ᄆㅇ/	# 初
+    - derive/ꥱ/ᄆㅅ/	# 初
+    - derive/ᄜ/ᄆㅂ/	# 初
+    - derive/ꥰ/ᄆㄷ/	# 初
+    - derive/ꥯ/ᄆㄱ/	# 初
+    - derive/ᅗ/ᄑㅇ/	# 初
+    - derive/ꥺ/ᄑㅎ/	# 初
+    - derive/ᅖ/ᄑㅂ/	# 初
+    - derive/ꥴ/ᄑ/	# 初
+    - derive/ᄬ/ᄈㅇ/	# 初
+    - derive/ᄪ/ᄈㅎ/	# 初
+    - derive/ᄫ/ᄇㅇ/	# 初
+    - derive/ᄥ/ᄇㅆ/	# 初
+    - derive/ᄦ/ᄇㅅㅈ/	# 初
+    - derive/ᄤ/ᄇㅅㅂ/	# 初
+    - derive/ꥲ/ᄇㅅㅌ/	# 初
+    - derive/ᄣ/ᄇㅅㄷ/	# 初
+    - derive/ᄢ/ᄇㅅㄱ/	# 初
+    - derive/ᄡ/ᄇㅅ/	# 初
+    - derive/ᄨ/ᄇㅊ/	# 初
+    - derive/ᄧ/ᄇㅈ/	# 初
+    - derive/ᄟ/ᄇㄴ/	# 初
+    - derive/ᄩ/ᄇㅌ/	# 初
+    - derive/ᄠ/ᄇㄷ/	# 初
+    - derive/ꥳ/ᄇㅋ/	# 初
+    - derive/ᄞ/ᄇㄱ/	# 初
+    - derive/ᅝ/ᄂㅎ/	# 初
+    - derive/ᅛ/ᄂㅅ/	# 初
+    - derive/ᅜ/ᄂㅈ/	# 初
+    - derive/ᄖ/ᄂㅂ/	# 初
+    - derive/ᄔ/ᄂㄴ/	# 初
+    - derive/ᄕ/ᄂㄷ/	# 初
+    - derive/ᄓ/ᄂㄱ/	# 初
+    - derive/ꥹ/ᄐㅌ/	# 初
+    - derive/ᅞ/ᄃㄹ/	# 初
+    - derive/ꥢ/ᄃㅅ/	# 初
+    - derive/ꥣ/ᄃㅈ/	# 初
+    - derive/ꥠ/ᄃㅁ/	# 初
+    - derive/ꥡ/ᄃㅂ/	# 初
+    - derive/ᄗ/ᄃㄱ/	# 初
+    - derive/ᅆ/ᅌㅿ/	# 初
+    - derive/ꥶ/ᅌㄹ/	# 初
+    - derive/ꥷ/ᅌㅎ/	# 初
+    - derive/ᅅ/ᅌㅅ/	# 初
+    - derive/ᅉ/ᅌㅊ/	# 初
+    - derive/ᅈ/ᅌㅈ/	# 初
+    - derive/ᅃ/ᅌㅁ/	# 初
+    - derive/ᅋ/ᅌㅍ/	# 初
+    - derive/ᅄ/ᅌㅂ/	# 初
+    - derive/ᅊ/ᅌㅌ/	# 初
+    - derive/ᅂ/ᅌㄷ/	# 初
+    - derive/ᅇ/ᅌㆁ/	# 初
+    - derive/ᅁ/ᅌㄱ/	# 初
+    - derive/ᅚ/ᄀㄷ/	# 初
+    - derive/〯/〮〮/	# 聲
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆻ$/$1ㅆ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ퟹ$/$1ㅉ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ퟦ$/$1ㅃ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ퟍ$/$1ㄸ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆩ$/$1ㄲ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆾ$/$1ㅊ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᇁ$/$1ㅍ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᇀ$/$1ㅌ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆿ$/$1ㅋ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᇫ$/$1ㅿ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆯ$/$1ㄹ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆼ$/$1ㅇ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᇂ$/$1ㅎ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᇹ$/$1ㆆ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆺ$/$1ㅅ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆽ$/$1ㅈ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆷ$/$1ㅁ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆸ$/$1ㅂ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆫ$/$1ㄴ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆮ$/$1ㄷ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᇰ$/$1ㆁ/	# 廿二終
+    - xform/^([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ᆨ$/$1ㄱ/	# 廿二終
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅧ$/$1ㅕ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅲ$/$1ㅠ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅣ$/$1ㅑ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅭ$/$1ㅛ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅠ$/$1ㅤ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅥ$/$1ㅓ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅮ$/$1ㅜ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅡ$/$1ㅏ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅩ$/$1ㅗ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅵ$/$1ㅣ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᅳ$/$1ㅡ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ᆞ$/$1ㆍ/	# 十二中
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᅘ$/$1ㆅ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄊ$/$1ㅆ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄍ$/$1ㅉ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄈ$/$1ㅃ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄄ$/$1ㄸ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄁ$/$1ㄲ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄎ$/$1ㅊ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄑ$/$1ㅍ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄐ$/$1ㅌ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄏ$/$1ㅋ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᅟ$/$1ㅤ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᅀ$/$1ㅿ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄅ$/$1ㄹ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄋ$/$1ㅇ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄒ$/$1ㅎ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᅙ$/$1ㆆ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄉ$/$1ㅅ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄌ$/$1ㅈ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄆ$/$1ㅁ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄇ$/$1ㅂ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄂ$/$1ㄴ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄃ$/$1ㄷ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᅌ$/$1ㆁ/	# 廿四初
+    - xform/^([ᆨ-ᇿퟋ-ퟻ〮〯]?)ᄀ$/$1ㄱ/	# 廿四初
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ]?)ᅥ$/$1ㅓ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ]?)ᅮ$/$1ㅜ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ]?)ᅡ$/$1ㅏ/	# 十二中
+    - xform/^([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ]?)ᅩ$/$1ㅗ/	# 十二中
+    - derive/ㅤ/ㆍㆍ/	# 四一
+    - derive/ㅕ/ㆍㅓ/	# 四一
+    - derive/ㅠ/ㆍㅜ/	# 四一
+    - derive/ㅑ/ㆍㅏ/	# 四一
+    - derive/ㅛ/ㆍㅗ/	# 四一
+    - derive/ㅤ/ㅇㅇ/	# 四六一
+    - derive/ㆅ/ㅎㅎ/	# 四六一
+    - derive/ㅆ/ㅅㅅ/	# 四六一
+    - derive/ㅉ/ㅈㅈ/	# 四六一
+    - derive/ㅃ/ㅂㅂ/	# 四六一
+    - derive/ㄸ/ㄷㄷ/	# 四六一
+    - derive/ㄲ/ㄱㄱ/	# 四六一
+    - derive/ㅊ/ㅈㅎ/	# 四六一
+    - derive/ㅍ/ㅂㅎ/	# 四六一
+    - derive/ㅌ/ㄷㅎ/	# 四六一
+    - xform/ㅋ/ㄱㅎ/	# 四六一
+    - xlit|・|c|	# 元
+    - xlit|〮|f|	# 元
+    - xlit|ㄲㄸㅃㆅ|gdbx|	# 元
+    - xlit|ㆍㅡㅣㅗㅏㅜㅓ|yvioaue|	# 元
+    - xlit|ㄱㆁㄷㄴㅂㅁㅈㅅㆆㅎㅇㄹㅿ|kwtnpmzsqhjlr|	# 元
+translator:
+  dictionary: &dict        # 設定 table_translator 使用的詞典名
+    wenmun_deasciified
+  # 用戶字典功能
+  enable_user_dict: false   # 不想自動調頻的話，將上條中「true」改爲「false」
+  # 句子輸入模式
+  enable_sentence: true
+  sentence_over_completion: true # 優先使用句子模式，而不是詞組補全
+  # 智能組詞功能
+  enable_encoder: true     # 不想自動組詞〔記錄輸入過的詞，然後變成五碼固定詞〕的話可以把上條中「true」改爲「false」
+  encode_commit_history: true
+  max_phrase_length: 7
+  # 顯示格式設定
+  preedit_format:  # 輸入區顯示轉換
+    - xlit|kwtnpmzsqhjlr|ㄱㆁㄷㄴㅂㅁㅈㅅㆆㅎㅇㄹㅿ|
+    - xlit|yvioaue|ㆍㅡㅣㅗㅏㅜㅓ|
+    - xlit|gdbx|ㄲㄸㅃㆅ|
+    - xlit|f|〮|
+    - xlit|c|・|
+    - xform/ㄱㅎ/ㅋ/	# 四送气
+    - xform/ㄷㅎ/ㅌ/
+    - xform/ㅂㅎ/ㅍ/
+    - xform/ㅈㅎ/ㅊ/
+    - xform/ㄱㄱ/ㄲ/	# 六竝濁
+    - xform/ㄷㄷ/ㄸ/
+    - xform/ㅂㅂ/ㅃ/
+    - xform/ㅈㅈ/ㅉ/
+    - xform/ㅅㅅ/ㅆ/
+    - xform/ㅎㅎ/ㆅ/
+    - xform/〮〮/〯/	# 諺文去上
+    - xform/([ᆨ-ᇿퟋ-ퟻ])ㄸ/$1〇/	# \u11A8-\u11FF\uD7CB-\uD7FB
+  comment_format:  # 𠊱選字注解區顯示轉換
+    - xlit|kwtnpmzsqhjlr~|ㄱㆁㄷㄴㅂㅁㅈㅅㆆㅎㅇㄹㅿ㉆|  #・
+    - xlit|yvioaue|ㆍㅡㅣㅗㅏㅜㅓ|
+    - xlit|gdbx|ㄲㄸㅃㆅ|
+    - xlit|f|〮|
+    - xlit|c|〶|
+    - xform/ㄱㅎ/ㅋ/	# 四送气
+    - xform/ㄷㅎ/ㅌ/
+    - xform/ㅂㅎ/ㅍ/
+    - xform/ㅈㅎ/ㅊ/
+    - xform/ㄱㄱ/ㄲ/	# 六竝濁
+    - xform/ㄷㄷ/ㄸ/
+    - xform/ㅂㅂ/ㅃ/
+    - xform/ㅈㅈ/ㅉ/
+    - xform/ㅅㅅ/ㅆ/
+    - xform/ㅎㅎ/ㆅ/
+    - xform/〮〮/〯/	# 諺文去上
+    - xform/([ᆨ-ᇿퟋ-ퟻ])ㄸ/$1讀/	# \u11A8-\u11FF\uD7CB-\uD7FB
+    # - xform/([ᄀ-ᅟꥠ-ꥼㄱ-ㅎㅤㅥ-ㆆ])ㄸ/$1讀/	# \u1100-\u115F\uA960-\uA97C
+    # - xform/([ᅠ-ᆧힰ-ퟆㅏ-ㅣㅤㆇ-ㆎ])ㄸ/$1讀/	# \u1160-\u11A7\uD7B0-\uD7C6
+  initial_quality: 0.75	# 調整該編譯器出字優先度
