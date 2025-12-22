@@ -43,7 +43,7 @@ engine:                    # 輸入引擎設定，即掛接組件的「處方」
     # - uniquifier           # ※ 過濾重複的候選字，有可能來自繁簡轉換
 
 translator:
-  dictionary: wenmun       # 設定 table_translator 使用的詞典名
+  dictionary: wenmun21       # 設定 table_translator 使用的詞典名
   # 用戶字典功能
   enable_user_dict: false   # 不想自動調頻的話，將上條中「true」改爲「false」
   # 句子輸入模式
@@ -60,6 +60,7 @@ translator:
     - xlit|gdbx|ㄲㄸㅃㆅ|
     - xlit|f|〮|
     - xlit|c|・|
+    - xform/([가-힣])/[$1]/
     - xform/ㄱㅎ/ㅋ/	# 四送气
     - xform/ㄷㅎ/ㅌ/
     - xform/ㅂㅎ/ㅍ/
@@ -78,6 +79,7 @@ translator:
     - xlit|gdbx|ㄲㄸㅃㆅ|
     - xlit|f|〮|
     - xlit|c|〶|
+    - xform/([가-힣])/[$1]/
     - xform/ㄱㅎ/ㅋ/	# 四送气
     - xform/ㄷㅎ/ㅌ/
     - xform/ㅂㅎ/ㅍ/
