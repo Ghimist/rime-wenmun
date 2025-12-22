@@ -1,0 +1,497 @@
+# Rime dictionary
+# encoding: utf-8
+
+---
+name: wenmun
+version: "0.5"
+sort: by_weight
+...
+
+# 諺文字母 Hangul Compatibility Jamo [Range: U+3131-318E] 凡94=30+22+34+8
+ㄱ	kc
+ㄲ	kkc	# 並書
+ㅋ	khc
+ㆁ	wc	# 下29
+ㄷ	tc
+ㄸ	ttc	# 並書
+ㅌ	thc
+ㄴ	nc
+ㅂ	pc
+ㅃ	ppc	# 並書
+ㅍ	phc
+ㅁ	mc
+ㅈ	zc
+ㅉ	zzc	# 並書
+ㅊ	zhc
+ㅅ	sc
+ㅆ	ssc	# 並書
+ㆆ	qc	# 下34
+ㅎ	hc
+ㆅ	hhc	# 並書、下33
+ㅇ	jc
+ㄹ	lc
+ㅿ	rc	# 下27
+ㆍ	yc
+ㅡ	vc
+ㅣ	ic
+ㅗ	oc
+ㅏ	ac
+ㅜ	uc
+ㅓ	ec
+ㅛ	yoc
+ㅑ	yac
+ㅠ	yuc
+ㅕ	yec
+# 四濁獨用
+ㄲ	gc
+ㄸ	dc
+ㅃ	bc
+ㆅ	xc
+# 上紐 {3131-314E}凡11=30-19(ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ)
+ㄳ	ksc
+ㄵ	nzc
+ㄶ	nhc
+ㄺ	lkc
+ㄻ	lmc
+ㄼ	lpc
+ㄽ	lsc
+ㄾ	lthc
+ㄿ	lphc
+ㅀ	lhc
+ㅄ	psc
+# 歬韻 {314F-3164}凡12=22-10(ㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣ)
+ㅐ	aic
+ㅒ	yaic
+ㅔ	eic
+ㅖ	yeic
+ㅘ	oac
+ㅙ	oaic
+ㅚ	oic
+ㅝ	uec
+ㅞ	ueic
+ㅟ	uic
+ㅢ	vic
+ㅤ	yyc
+# 下紐 {3165-3186}凡30=34-4(ㅿ ㆁㆅㆆ)
+ㅥ	nnc	#(3165-316F]11=11-0
+ㅦ	ntc
+ㅧ	nsc
+ㅨ	nrc
+ㅩ	lksc
+ㅪ	ltc
+ㅫ	lpsc
+ㅬ	lrc
+ㅭ	lqc
+ㅮ	mpc
+ㅯ	msc
+ㅰ	mrc	#[3170-317F]15=16-1(ㅿ)
+ㅱ	mjc
+ㅲ	pkc
+ㅳ	ptc
+ㅴ	pskc
+ㅵ	pstc
+ㅶ	pzc
+ㅷ	pthc
+ㅸ	pjc
+ㅹ	ppjc
+ㅺ	skc
+ㅻ	snc
+ㅼ	stc
+ㅽ	spc
+ㅾ	szc
+ㆀ	wwc	#[3180-3186)4=7-3(ㆁㆅㆆ)
+ㆂ	wsc
+ㆃ	wrc
+ㆄ	phjc
+# 後韻 {3187-318E}凡7=8-1(ㆍ)
+ㆇ	yoyac
+ㆈ	yoyaic
+ㆉ	yoic
+ㆊ	yuyec
+ㆋ	yuyeic
+ㆌ	yuic
+ㆎ	yic
+# 兼容碼 1+2*2
+ㅹ	bjc
+ㆇ	yoac
+ㆈ	yoaic
+ㆊ	yuec
+ㆋ	yueic
+〮	f
+〯	ff
+
+# 初聲甲 Hangul Jamo [Range: 1100–11FF][1100-115F]凡96=16*6
+#   Initial consonants
+ᄀ	k	#[1100-110F]
+ᄁ	kk
+ᄂ	n
+ᄃ	t
+ᄄ	tt
+ᄅ	l
+ᄆ	m
+ᄇ	p
+ᄈ	pp
+ᄉ	s
+ᄊ	ss
+ᄋ	j
+ᄌ	z
+ᄍ	zz
+ᄎ	zh
+ᄏ	kh
+ᄐ	th	#[1110-111F]
+ᄑ	ph
+ᄒ	h
+#   Old initial consonants
+ᄓ	nk
+ᄔ	nn
+ᄕ	nt
+ᄖ	np
+ᄗ	tk
+ᄘ	ln
+ᄙ	ll
+ᄚ	lh
+ᄛ	lj
+ᄜ	mp
+ᄝ	mj
+ᄞ	pk
+ᄟ	pn
+ᄠ	pt	#[1120-112F]
+ᄡ	ps
+ᄢ	psk
+ᄣ	pst
+ᄤ	psp
+ᄥ	pss
+ᄦ	psz
+ᄧ	pz
+ᄨ	pzh
+ᄩ	pth
+ᄪ	pph
+ᄫ	pj
+ᄬ	ppj
+ᄭ	sk
+ᄮ	sn
+ᄯ	st
+ᄰ	sl	#[1130-113F]
+ᄱ	sm
+ᄲ	sp
+ᄳ	spk
+ᄴ	sss
+ᄵ	sw
+ᄶ	sz
+ᄷ	szh
+ᄸ	skh
+ᄹ	sth
+ᄺ	sph
+ᄻ	sh
+ᄼ	sj
+ᄽ	ssj
+ᄾ	sr
+ᄿ	ssr
+ᅀ	r	#[1140-114F]	#•/z/ voiced alveolar fricative
+ᅁ	wk
+ᅂ	wt
+ᅃ	wm
+ᅄ	wp
+ᅅ	ws
+ᅆ	wr
+ᅇ	ww
+ᅈ	wz
+ᅉ	wzh
+ᅊ	wth
+ᅋ	wph
+ᅌ	w
+ᅍ	zw
+ᅎ	zj
+ᅏ	zzj
+ᅐ	zr	#[1150-115F]
+ᅑ	zzr
+ᅒ	zhkh
+ᅓ	zhh
+ᅔ	zhj
+ᅕ	zhr
+ᅖ	php
+ᅗ	phj
+ᅘ	hh
+ᅙ	q
+ᅚ	kt
+ᅛ	ns
+ᅜ	nz
+ᅝ	nh
+ᅞ	tl
+ᅟ	jj
+# 初聲乙 Hangul Jamo Extended-A [Range: A960–A97F][A960-A97C]凡29=16*1+13
+#   Old initial consonants
+ꥠ	tm	#[A960-A96F]
+ꥡ	tp
+ꥢ	ts
+ꥣ	tz
+ꥤ	lk
+ꥥ	lkk
+ꥦ	lt
+ꥧ	ltt
+ꥨ	lm
+ꥩ	lp
+ꥪ	lpp
+ꥫ	lpj
+ꥬ	ls
+ꥭ	lz
+ꥮ	lkh
+ꥯ	mk
+ꥰ	mt	#[A970-A97C]
+ꥱ	ms
+ꥲ	psth
+ꥳ	pkh
+ꥴ	ph
+ꥵ	ssp
+ꥶ	wl
+ꥷ	wh
+ꥸ	zzh
+ꥹ	thth
+ꥺ	phh
+ꥻ	hs
+ꥼ	qq
+
+# 中聲甲 Hangul Jamo [Range: 1100–11FF][1160-11A7)凡72=16*4+8
+#   Medial vowels
+ᅠ	yy	#[1160-116F]	# HANGUL JUNGSEONG FILLER
+ᅡ	a
+ᅢ	ai
+ᅣ	ya
+ᅤ	yai
+ᅥ	e
+ᅦ	ei
+ᅧ	ye
+ᅨ	yei
+ᅩ	o
+ᅪ	oa
+ᅫ	oai
+ᅬ	oi
+ᅭ	yo
+ᅮ	u
+ᅯ	ue
+ᅰ	uei	#[1170-117F]
+ᅱ	ui
+ᅲ	yu
+ᅳ	v
+ᅴ	vi
+ᅵ	i
+  # Old medial vowels
+ᅶ	ao
+ᅷ	au
+ᅸ	yao
+ᅹ	yayo
+ᅺ	eo
+ᅻ	eu
+ᅼ	ev
+ᅽ	yeo
+ᅾ	yeu
+ᅿ	oe
+ᆀ	oei	#[1180-118F]
+ᆁ	oyei
+ᆂ	oo
+ᆃ	ou
+ᆄ	yoya
+ᆅ	yoyai
+ᆆ	yoye
+ᆇ	yoo
+ᆈ	yoi
+ᆉ	ua
+ᆊ	uai
+ᆋ	uev
+ᆌ	uyei
+ᆍ	uu
+ᆎ	yua
+ᆏ	yue
+ᆐ	yuei	#[1190-119F]
+ᆑ	yuye
+ᆒ	yuyei
+ᆓ	yuu
+ᆔ	yui
+ᆕ	vu
+ᆖ	vv
+ᆗ	viu
+ᆘ	ia
+ᆙ	iya
+ᆚ	io
+ᆛ	iu
+ᆜ	iv
+ᆝ	iy
+ᆞ	y	#•/ɔ/ rounded open-mid back vowel
+ᆟ	ye
+ᆠ	yu	#[11A0-11A7)
+ᆡ	yi
+ᆢ	yy
+ᆣ	av
+ᆤ	yau
+ᆥ	yeya
+ᆦ	oya
+ᆧ	oyai
+# 中聲乙 Hangul Jamo Extended-B [Range: D7B0–D7FF][D7B0-D7C6)凡23=16*1+7
+#   Old medial vowels
+ힰ	oye	#[D7B0-D7BF]
+ힱ	ooi
+ힲ	yoa
+ힳ	yoai
+ힴ	yoe
+ힵ	uye
+ힶ	uii
+ힷ	yuai
+ힸ	yuo
+ힹ	va
+ힺ	ve
+ힻ	vei
+ힼ	vo
+ힽ	iyao
+ힾ	iyai
+ힿ	iye
+ퟀ	iyei	#[D7C0-D7C6]
+ퟁ	ioi
+ퟂ	iyo
+ퟃ	iyu
+ퟄ	ii
+ퟅ	ya
+ퟆ	yei
+
+# 終聲甲 Hangul Jamo [Range: 1100–11FF](11A8-11FF]凡88=8+16*5
+#   Final consonants
+ᆨ	kd	#(11A8-11AF]
+ᆩ	kkd
+ᆪ	ksd
+ᆫ	nd
+ᆬ	nzd
+ᆭ	nhd
+ᆮ	td
+ᆯ	ld
+ᆰ	lkd	#[11B0-11BF]
+ᆱ	lmd
+ᆲ	lpd
+ᆳ	lsd
+ᆴ	lthd
+ᆵ	lphd
+ᆶ	lhd
+ᆷ	md
+ᆸ	pd
+ᆹ	psd
+ᆺ	sd
+ᆻ	ssd
+ᆼ	jd	#•/ŋ/ velar nasal consonant
+ᆽ	zd
+ᆾ	zhd
+ᆿ	khd
+ᇀ	thd	#[11C0-11CF]
+ᇁ	phd
+ᇂ	hd
+#   Old final consonants
+ᇃ	kld
+ᇄ	kskd
+ᇅ	nkd
+ᇆ	ntd
+ᇇ	nsd
+ᇈ	nrd
+ᇉ	nthd
+ᇊ	tkd
+ᇋ	tld
+ᇌ	lksd
+ᇍ	lnd
+ᇎ	ltd
+ᇏ	lthd
+ᇐ	lld	#[11D0-11DF]
+ᇑ	lmkd
+ᇒ	lmsd
+ᇓ	lpsd
+ᇔ	lphd
+ᇕ	lpjd
+ᇖ	lssd
+ᇗ	lrd
+ᇘ	lkhd
+ᇙ	lqd
+ᇚ	mkd
+ᇛ	mld
+ᇜ	mpd
+ᇝ	msd
+ᇞ	mssd
+ᇟ	mrd
+ᇠ	mzhd	#[11E0-11EF]
+ᇡ	mhd
+ᇢ	mjd
+ᇣ	pld
+ᇤ	pphd
+ᇥ	phd
+ᇦ	pjd
+ᇧ	skd
+ᇨ	std
+ᇩ	sld
+ᇪ	spd
+ᇫ	rd
+ᇬ	wkd
+ᇭ	wkkd
+ᇮ	wwd
+ᇯ	wkhd
+ᇰ	wd	#[11F0-11FF]
+ᇱ	wsd
+ᇲ	wrd
+ᇳ	phpd
+ᇴ	phjd
+ᇵ	hnd
+ᇶ	hld
+ᇷ	hmd
+ᇸ	hpd
+ᇹ	qd
+ᇺ	knd
+ᇻ	kpd
+ᇼ	kzhd
+ᇽ	kkhd
+ᇾ	khd
+ᇿ	nnd
+# 終聲乙 Hangul Jamo Extended-B [Range: D7B0–D7FF](D7CB-D7FB)凡49=5+16*2+12[D7CB-D7FB]
+#   Old final consonants
+ퟋ	nld	#[D7CB-D7CF]
+ퟌ	nzhd
+ퟍ	ttd
+ퟎ	ttpd
+ퟏ	tpd
+ퟐ	tsd	#[D7D0-D7DF]
+ퟑ	tskd
+ퟒ	tzd
+ퟓ	tzhd
+ퟔ	tthd
+ퟕ	lkkd
+ퟖ	lkhd
+ퟗ	llkhd
+ퟘ	lmhd
+ퟙ	lptd
+ퟚ	lpphd
+ퟛ	lwd
+ퟜ	lqhd
+ퟝ	ljd
+ퟞ	mnd
+ퟟ	mnnd
+ퟠ	mmd	#[D7E0-D7EF]
+ퟡ	mpsd
+ퟢ	mzd
+ퟣ	ptd
+ퟤ	plphd
+ퟥ	pmd
+ퟦ	ppd
+ퟧ	pstd
+ퟨ	pzd
+ퟩ	pzhd
+ퟪ	smd
+ퟫ	spjd
+ퟬ	sskd
+ퟭ	sstd
+ퟮ	srd
+ퟯ	szd
+ퟰ	szhd	#[D7F0-D7FB]
+ퟱ	sthd
+ퟲ	shd
+ퟳ	rpd
+ퟴ	rpjd
+ퟵ	wmd
+ퟶ	whd
+ퟷ	zpd
+ퟸ	zppd
+ퟹ	zzd
+ퟺ	phsd
+ퟻ	phthd
+# ㄱㅋㆁㄷㅌㄴㅂㅍㅁㅈㅊㅅㆆㅎㅇㄹㅿㆍㅡㅣㅗㅏㅜㅓ〮〯
