@@ -6,6 +6,6 @@ name: wenmun453
 version: "0.5"
 sort: by_weight
 import_tables:
-  - wenmun_syllables
   - wenmun_deasciified
+  - wenmun_syllables453
 ...
