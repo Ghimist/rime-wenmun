@@ -1,0 +1,11 @@
+# Rime dictionary
+# encoding: utf-8
+
+---
+name: wenmun453
+version: "0.5"
+sort: by_weight
+import_tables:
+  - wenmun_syllables
+  - wenmun_deasciified
+...
