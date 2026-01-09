@@ -522,7 +522,7 @@ translator:
     - xlit|gdbx|ㄲㄸㅃㆅ|
     - xlit|f|〮|
     - xlit|c|・|
-    - xform/([가-힣])/[$1]/
+    # - xform/([가-힣])/[$1]/
     - xform/ㄱㅎ/ㅋ/	# 四送气
     - xform/ㄷㅎ/ㅌ/
     - xform/ㅂㅎ/ㅍ/
@@ -541,7 +541,7 @@ translator:
     - xlit|gdbx|ㄲㄸㅃㆅ|
     - xlit|f|〮|
     - xlit|c|〶|
-    - xform/([가-힣])/[$1]/
+    # - xform/([가-힣])/[$1]/
     - xform/ㄱㅎ/ㅋ/	# 四送气
     - xform/ㄷㅎ/ㅌ/
     - xform/ㅂㅎ/ㅍ/
