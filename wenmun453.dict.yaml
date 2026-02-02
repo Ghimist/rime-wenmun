@@ -8,4 +8,5 @@ sort: by_weight
 import_tables:
   - wenmun453_jamo
   - wenmun453_syllables
+  - wenmun453_qmf
 ...
